@@ -1,0 +1,50 @@
+/* ========================================= */
+/* EDITORIAL HEADER & FILTER BAR             */
+/* ========================================= */
+.page-head{padding:80px 0 56px;}
+.page-head h1{font-family:'Fraunces',serif;font-weight:400;font-size:clamp(38px,5.4vw,70px);line-height:1.02;margin-top:16px;letter-spacing:-0.01em;max-width:14ch;}
+.page-head h1 em{font-style:italic;color:var(--deep-blue);}
+.page-head p{margin-top:20px;font-size:15.5px;color:var(--ink-soft);max-width:56ch;line-height:1.7;}
+
+.filter-bar{position:sticky;top:73px;z-index:60;background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;margin-bottom:56px;}
+.filter-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.filter-row select, .filter-row input{font-family:'IBM Plex Mono',monospace;font-size:12.5px;letter-spacing:0.02em;border:1px solid var(--line);background:var(--white);color:var(--ink);padding:11px 16px;border-radius:100px;outline:none;transition:border-color .25s;}
+.filter-row select:focus, .filter-row input:focus{border-color:var(--deep-blue);}
+.filter-row input{width:200px;}
+
+/* ========================================= */
+/* DYNAMIC ROOM GRID                         */
+/* ========================================= */
+.room-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;padding-bottom:140px;}
+@media(max-width:1000px){.room-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:640px){.room-grid{grid-template-columns:1fr;}}
+
+.room-card{background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden;transition:transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s;}
+.room-card:hover{transform:translateY(-6px);box-shadow:0 24px 48px rgba(14,28,41,0.1);}
+.room-media{height:220px;position:relative;overflow:hidden;}
+.room-media .fill{position:absolute;inset:0;transition:transform 1s cubic-bezier(.2,.8,.2,1);}
+.room-card:hover .fill{transform:scale(1.07);}
+.room-media .tag{position:absolute;top:14px;left:14px;background:rgba(14,28,41,0.55);backdrop-filter:blur(6px);color:var(--gold-soft);padding:6px 12px;border-radius:100px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:0.05em;}
+.room-media .avail{position:absolute;top:14px;right:14px;width:9px;height:9px;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,0.5);}
+.avail.green{background:#4C9A5A;}
+.avail.amber{background:#D8A233;}
+.avail.red{background:#C4544A;}
+.room-info{padding:20px 22px 24px;}
+.room-info h3{font-family:'Fraunces',serif;font-weight:500;font-size:19px;}
+.room-meta{display:flex;gap:14px;margin:10px 0 14px;font-size:12px;font-family:'IBM Plex Mono',monospace;color:var(--ink-soft);flex-wrap:wrap;}
+.room-foot{display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--line);padding-top:14px;}
+.room-price{font-family:'IBM Plex Mono',monospace;font-size:16px;color:var(--deep-blue);}
+.room-price span{font-size:10.5px;color:var(--ink-soft);}
+
+/* ========================================= */
+/* OWNER ADMIN BUTTONS                       */
+/* ========================================= */
+.dash-create-btn { background: var(--deep-blue); color: #fff; border: none; padding: 12px 24px; border-radius: 100px; font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 500; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(10, 77, 140, 0.2); }
+.dash-create-btn:hover { background: var(--dusk); transform: translateY(-2px); }
+
+.action-cells { display: flex; gap: 12px; }
+.action-btn { background: none; border: 1px solid rgba(14,28,41,0.15); padding: 6px 14px; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
+.action-btn.edit { color: var(--deep-blue); }
+.action-btn.edit:hover { background: var(--deep-blue); color: #fff; border-color: var(--deep-blue); }
+.action-btn.delete { color: #D93838; }
+.action-btn.delete:hover { background: #D93838; color: #fff; border-color: #D93838; }
