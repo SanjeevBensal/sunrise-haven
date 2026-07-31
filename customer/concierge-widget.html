@@ -1,0 +1,30 @@
+<!-- Floating Chat Button & Modal Container -->
+<div id="concierge-widget">
+  <button id="concierge-trigger" class="concierge-btn">
+    ✨ Concierge
+  </button>
+
+  <div id="concierge-modal" class="concierge-modal hidden">
+    <div class="concierge-header">
+      <div>
+        <h3>Sunrise Haven Assistant</h3>
+        <span class="online-indicator">Online</span>
+      </div>
+      <button id="concierge-close">&times;</button>
+    </div>
+
+    <div id="chat-messages" class="chat-body">
+      <div class="msg bot-msg">
+        Good day! I am your virtual concierge. How can I make your Baguio stay memorable?
+      </div>
+    </div>
+
+    <!-- Dynamic Action Chips -->
+    <div id="suggestion-chips" class="chips-container"></div>
+
+    <div class="chat-footer">
+      <input type="text" id="chat-input" placeholder="Ask about rooms, spots, or stay details..." />
+      <button id="chat-send">Send</button>
+    </div>
+  </div>
+</div>

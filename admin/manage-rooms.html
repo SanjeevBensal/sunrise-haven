@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manage Rooms — Owner Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+   <link rel="stylesheet" href="../customer/css/index.css">
+  <link rel="stylesheet" href="css/manage-rooms.css">
+</head>
+<body>
+
+<!-- OWNER NAVIGATION -->
+<nav>
+<div class="nav-mark"><a href="../index.html">Sunrise <em>Haven</em></a></div>
+  <div class="nav-links">
+    <a href="ownerindex.html">Bookings (CRUD)</a>
+    <a href="manage-rooms.html" class="active">Manage Rooms</a>
+  </div>
+  <div class="nav-actions" style="display:flex; align-items:center; gap:20px;">
+    <a href="../customer/index.html" class="nav-login" style="background:none; border:none; font-family:'Inter',sans-serif; font-size:13px; font-weight:500; cursor:pointer; color:#fff; text-decoration:none;">Log out</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="sun-container" id="sun-container">
+    <div class="rays" id="rays"></div>
+    <div class="sun" id="sun"></div>
+  </div>
+  <div class="hero-sky-glow"></div>
+
+  <!-- ADDED: The missing birds to fix the GSAP console warnings -->
+  <svg class="bird" id="bird1" width="30" height="20" viewBox="0 0 30 20" style="position:absolute; top:20%; left:20%; opacity:0.6; z-index: 2;">
+    <path d="M0,10 Q5,0 15,10 Q25,0 30,10 Q25,15 15,10 Q5,15 0,10 Z" fill="#1B2E40"/>
+  </svg>
+  <svg class="bird" id="bird2" width="20" height="15" viewBox="0 0 30 20" style="position:absolute; top:15%; right:25%; opacity:0.4; z-index: 2;">
+    <path d="M0,10 Q5,0 15,10 Q25,0 30,10 Q25,15 15,10 Q5,15 0,10 Z" fill="#1B2E40"/>
+  </svg>
+
+  <svg class="mtn-layer" id="mtn-far" viewBox="0 0 1000 500" preserveAspectRatio="none" style="bottom:0;height:65%;opacity:0.45;">
+    <defs>
+      <linearGradient id="farGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#5A7188" />
+        <stop offset="100%" stop-color="#DDE6ED" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+    <path fill="url(#farGradient)" d="M 0 280 L 40 260 L 70 270 L 150 160 L 180 170 L 240 90 L 280 130 L 310 120 L 400 230 L 440 210 L 500 260 L 600 120 L 630 140 L 720 40 L 760 90 L 790 85 L 880 180 L 940 140 L 980 170 L 1060 90 L 1090 120 L 1180 40 L 1220 90 L 1260 80 L 1360 190 L 1400 170 L 1440 220 H 1500 V 500 H -10 Z"/>
+  </svg>
+
+  <svg class="mtn-layer" id="mtn-mid" viewBox="0 0 1000 500" preserveAspectRatio="none" style="bottom:0;height:65%;opacity:0.75;">
+    <defs>
+      <linearGradient id="midGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#4A657E" />
+        <stop offset="100%" stop-color="#25384B" />
+      </linearGradient>
+    </defs>
+    <path fill="url(#midGradient)" d="M 0 350 L 120 310 L 150 325 L 280 210 L 320 230 L 420 150 L 460 170 L 550 250 L 590 235 L 680 340 L 740 310 L 820 360 L 900 280 L 940 295 L 1050 180 L 1090 200 L 1200 100 L 1240 140 L 1270 120 L 1380 240 L 1420 220 L 1440 250 H 1500 V 500 H -10 Z"/>
+  </svg>
+
+  <svg class="mtn-layer" id="mtn-near" viewBox="0 0 1450 500" preserveAspectRatio="none" style="bottom:0;height:55%;">
+    <defs>
+      <linearGradient id="frontGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1B2E40" />
+        <stop offset="100%" stop-color="#0A1118" />
+      </linearGradient>
+      <linearGradient id="sunHighlight" x1="1" y1="0" x2="0" y2="0">
+        <stop offset="0%" stop-color="rgba(255,220,140,0.4)" />
+        <stop offset="30%" stop-color="rgba(255,220,140,0.05)" />
+        <stop offset="100%" stop-color="rgba(255,220,140,0)" />
+      </linearGradient>
+    </defs>
+    <path fill="url(#frontGradient)" d="M 0 320 L 80 270 L 110 285 L 180 190 L 380 310 L 410 295 L 550 400 L 590 385 L 700 450 L 800 370 L 840 390 L 980 260 L 1020 285 L 1050 270 L 1180 150 L 1220 190 L 1340 80 L 1380 120 L 1410 105 L 1440 140 H 1500 V 500 H -10 Z"/>
+    <path fill="url(#sunHighlight)" d="M 700 450 L 800 370 L 840 390 L 980 260 L 1020 285 L 1050 270 L 1180 150 L 1220 190 L 1340 80 L 1380 120 L 1410 105 L 1440 140 H 1500 V 500 H 700 Z"/>
+  </svg>
+
+  <svg id="pines" class="mtn-layer" viewBox="0 0 1440 250" preserveAspectRatio="none" style="bottom:0;height:30%;overflow:visible;">
+    <defs>
+      <path id="pine" d="M 0 0 L 12 25 L 4 25 L 18 55 L 6 55 L 24 90 L 8 90 L 30 135 L 12 135 L 12 170 L -12 170 L -12 135 L -30 135 L -8 90 L -24 90 L -6 55 L -18 55 L -4 25 L -12 25 Z"/>
+    </defs>
+    <g fill="#162E45" opacity="0.8">
+      <use href="#pine" transform="translate(30, 80) scale(0.6)" />
+      <use href="#pine" transform="translate(1420, 85) scale(0.65)" />
+    </g>
+    <g fill="#0B1A28">
+      <use href="#pine" transform="translate(60, 110) scale(0.85)" />
+      <use href="#pine" transform="translate(1400, 95) scale(0.9)" />
+    </g>
+    <g fill="#040B12">
+      <use href="#pine" transform="translate(10, 140) scale(1.1)" />
+      <use href="#pine" transform="translate(1450, 140) scale(1.1)" />
+    </g>
+  </svg>
+
+  <svg class="cloud" id="cloud1" width="220" height="70" viewBox="0 0 220 70" style="top:14%;left:8%;">
+    <ellipse cx="60" cy="40" rx="60" ry="24" fill="#fff" opacity="0.5"/>
+    <ellipse cx="120" cy="30" rx="50" ry="20" fill="#fff" opacity="0.4"/>
+  </svg>
+  <svg class="cloud" id="cloud2" width="180" height="60" viewBox="0 0 180 60" style="top:24%;right:10%;">
+    <ellipse cx="50" cy="34" rx="50" ry="20" fill="#fff" opacity="0.4"/>
+    <ellipse cx="110" cy="26" rx="40" ry="16" fill="#fff" opacity="0.35"/>
+  </svg>
+
+  <div class="particles" id="particles"></div>
+
+  <div class="hero-copy">
+    <div class="hero-eyebrow">Property Configuration</div>
+    <h1 class="hero-title">Room <em>Inventory.</em></h1>
+    <p class="hero-sub">Add new accommodations, update pricing, and adjust room details to keep your listings accurate.</p>
+  </div>
+</section>
+
+<!-- DYNAMIC FILTER BAR -->
+<div class="filter-bar">
+  <div class="wrap filter-row">
+    <select id="f-capacity">
+      <option value="">Any capacity</option>
+      <option value="2">2 guests</option>
+      <option value="3">3 guests</option>
+      <option value="4">4 guests</option>
+    </select>
+    <select id="f-view">
+      <option value="">Any view</option>
+      <option value="Ridge view">Ridge view</option>
+      <option value="Pine view">Pine view</option>
+      <option value="Golden hour">Golden hour</option>
+      <option value="Mist view">Mist view</option>
+    </select>
+    <select id="f-sort">
+      <option value="price-asc">Price: low to high</option>
+      <option value="price-desc">Price: high to low</option>
+      <option value="capacity">Capacity</option>
+    </select>
+    <input id="f-search" type="text" placeholder="Search rooms...">
+    <button class="dash-create-btn" id="new-room-btn" style="margin-left:auto;">+ Add New Room</button>
+  </div>
+</div>
+
+<!-- DYNAMIC GRID -->
+<div class="wrap room-grid" id="room-grid"></div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-mark">Sunrise <em>Haven</em></div>
+    <div class="foot-bottom">
+      <span>© 2026 Sunrise Haven. All rights reserved.</span>
+      <span>Owner Portal</span>
+    </div>
+  </div>
+</footer>
+
+<!-- CRUD ROOM MODAL -->
+<div class="modal-overlay" id="room-modal">
+  <div class="modal-content" style="max-width: 600px;">
+    <button class="modal-close" id="close-room-modal">&times;</button>
+    
+    <div class="modal-header">
+      <h2 id="room-modal-title" style="font-family:'Fraunces',serif; font-size:28px; color:#0A4D8C; margin-bottom:6px; font-weight:500;">Edit Room</h2>
+      <p style="font-size:14.5px; color:rgba(14,28,41,0.62); margin-bottom:24px;">Update pricing, capacity, and identifying details.</p>
+    </div>
+
+    <form class="login-form">
+      <div class="input-row" style="display:flex; gap:16px;">
+        <div class="input-group" style="flex:1;">
+          <label style="display:block; font-size:11px; font-family:'IBM Plex Mono',monospace; margin-bottom:8px; color:#062E56; text-transform:uppercase; letter-spacing:0.05em;">Room Name</label>
+          <input type="text" id="m-name" required style="width:100%; padding:14px 16px; border:1px solid rgba(14,28,41,0.15); border-radius:10px; font-family:'Inter',sans-serif; font-size:14px; background:#fff; outline:none;">
+        </div>
+        <div class="input-group" style="flex:1;">
+          <label style="display:block; font-size:11px; font-family:'IBM Plex Mono',monospace; margin-bottom:8px; color:#062E56; text-transform:uppercase; letter-spacing:0.05em;">Price per night (₱)</label>
+          <input type="number" id="m-price" required style="width:100%; padding:14px 16px; border:1px solid rgba(14,28,41,0.15); border-radius:10px; font-family:'Inter',sans-serif; font-size:14px; background:#fff; outline:none;">
+        </div>
+      </div>
+      
+      <!-- UPDATED ROW: View Tag & Room Description -->
+      <div class="input-row" style="display:flex; gap:16px; margin-top:20px;">
+        <div class="input-group" style="flex:1;">
+          <label style="display:block; font-size:11px; font-family:'IBM Plex Mono',monospace; margin-bottom:8px; color:#062E56; text-transform:uppercase;">View Tag</label>
+          <input type="text" id="m-tag" style="width:100%; padding:14px 16px; border:1px solid rgba(14,28,41,0.15); border-radius:10px; font-family:'Inter',sans-serif; font-size:14px;">
+        </div>
+        <div class="input-group" style="flex:1;">
+          <label style="display:block; font-size:11px; font-family:'IBM Plex Mono',monospace; margin-bottom:8px; color:#062E56; text-transform:uppercase;">Room Description</label>
+          <input type="text" id="m-desc" placeholder="A cozy room..." style="width:100%; padding:14px 16px; border:1px solid rgba(14,28,41,0.15); border-radius:10px; font-family:'Inter',sans-serif; font-size:14px;">
+        </div>
+      </div>
+
+      <!-- NEW ROW: Manage Existing Images -->
+      <div class="input-row" style="margin-top:20px;">
+        <div class="input-group" style="width:100%;">
+          <label style="display:block; font-size:11px; font-family:'IBM Plex Mono',monospace; margin-bottom:8px; color:#062E56; text-transform:uppercase;">Manage Existing Images</label>
+          <div id="m-existing-images" style="display:flex; gap:12px; flex-wrap:wrap; min-height:60px; padding:12px; border:1px solid rgba(14,28,41,0.15); border-radius:10px; background:#f8fafc;">
+            <!-- Thumbnails will automatically appear here -->
+          </div>
+        </div>
+      </div>
+      <!-- NEW ROW: Multiple Image Upload -->
+      <div class="input-row" style="margin-top:20px;">
+        <div class="input-group" style="width:100%;">
+          <label style="display:block; font-size:11px; font-family:'IBM Plex Mono',monospace; margin-bottom:8px; color:#062E56; text-transform:uppercase;">Upload Room Images (Multiple)</label>
+          <input type="file" id="m-images" multiple accept="image/*" style="width:100%; padding:14px 16px; border:1px dashed rgba(14,28,41,0.3); border-radius:10px; font-family:'Inter',sans-serif; font-size:14px; background:#f8fafc; cursor:pointer;">
+        </div>
+      </div>
+
+      <div class="input-row" style="display:flex; gap:16px; margin-top:20px;">
+        <div class="input-group" style="flex:1;">
+          <label style="display:block; font-size:11px; font-family:'IBM Plex Mono',monospace; margin-bottom:8px; color:#062E56; text-transform:uppercase; letter-spacing:0.05em;">Max Guests</label>
+          <input type="number" id="m-cap" style="width:100%; padding:14px 16px; border:1px solid rgba(14,28,41,0.15); border-radius:10px; font-family:'Inter',sans-serif; font-size:14px; background:#fff; outline:none;">
+        </div>
+        <div class="input-group" style="flex:1;">
+          <label style="display:block; font-size:11px; font-family:'IBM Plex Mono',monospace; margin-bottom:8px; color:#062E56; text-transform:uppercase; letter-spacing:0.05em;">Beds</label>
+          <input type="number" id="m-beds" style="width:100%; padding:14px 16px; border:1px solid rgba(14,28,41,0.15); border-radius:10px; font-family:'Inter',sans-serif; font-size:14px; background:#fff; outline:none;">
+        </div>
+        <div class="input-group" style="flex:1;">
+          <label style="display:block; font-size:11px; font-family:'IBM Plex Mono',monospace; margin-bottom:8px; color:#062E56; text-transform:uppercase; letter-spacing:0.05em;">Size (m²)</label>
+          <input type="number" id="m-size" style="width:100%; padding:14px 16px; border:1px solid rgba(14,28,41,0.15); border-radius:10px; font-family:'Inter',sans-serif; font-size:14px; background:#fff; outline:none;">
+        </div>
+      </div>
+      
+      <div class="action-cells" style="display:flex; margin-top:32px; justify-content:space-between; align-items:center;">
+        <button type="button" class="action-btn delete" style="background:none; border:1px solid #D93838; color:#D93838; padding:14px 20px; border-radius:6px; font-family:'Inter',sans-serif; font-size:13px; font-weight:500; cursor:pointer;">Delete Room</button>
+        <button type="submit" class="submit-btn" style="background:#0E1C29; color:#fff; border:none; padding:14px 32px; border-radius:100px; font-family:'Inter',sans-serif; font-size:14.5px; font-weight:500; cursor:pointer;">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- PREVIEW ROOM MODAL (Public View) -->
+<div class="overlay" id="overlay">
+  <div class="detail" id="detail"></div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<!-- 1. Global animations (goes up one folder) -->
+<script src="../customer/js/index.js"></script>
+
+<script src="js/manage-rooms.js"></script>
+</body>
+</html>

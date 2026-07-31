@@ -1,0 +1,41 @@
+.concierge-btn {
+  position: fixed; bottom: 28px; right: 28px; z-index: 999;
+  background: var(--deep-blue, #0A4D8C); color: #fff;
+  padding: 14px 22px; border-radius: 100px; border: none;
+  font-family: 'IBM Plex Mono', monospace; font-size: 13px;
+  box-shadow: 0 10px 25px rgba(10, 77, 140, 0.3); cursor: pointer;
+  transition: transform 0.25s ease;
+}
+.concierge-btn:hover { transform: translateY(-3px); }
+
+.concierge-modal {
+  position: fixed; bottom: 90px; right: 28px; width: 380px; height: 540px;
+  background: var(--paper, #F7F5EF); border: 1px solid var(--line, rgba(14,28,41,0.12));
+  border-radius: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  display: flex; flex-direction: column; overflow: hidden; z-index: 1000;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.concierge-modal.hidden { opacity: 0; pointer-events: none; transform: translateY(20px); }
+
+.concierge-header {
+  background: var(--forest-deep, #0D231C); color: #fff;
+  padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;
+}
+.concierge-header h3 { font-family: 'Fraunces', serif; font-size: 16px; font-weight: 500; }
+.online-indicator { font-size: 11px; color: #4C9A5A; font-family: 'IBM Plex Mono', monospace; }
+
+.chat-body { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; }
+.msg { max-width: 82%; padding: 10px 14px; border-radius: 14px; font-size: 13.5px; line-height: 1.5; }
+.bot-msg { background: #fff; color: var(--ink, #0E1C29); border: 1px solid var(--line); align-self: flex-start; }
+.user-msg { background: var(--deep-blue, #0A4D8C); color: #fff; align-self: flex-end; }
+
+.chips-container { display: flex; gap: 8px; padding: 8px 16px; overflow-x: auto; scrollbar-width: none; }
+.chip {
+  background: #fff; border: 1px solid var(--line); padding: 6px 12px; border-radius: 100px;
+  font-size: 11.5px; font-family: 'IBM Plex Mono', monospace; white-space: nowrap; cursor: pointer;
+}
+.chip:hover { border-color: var(--deep-blue); color: var(--deep-blue); }
+
+.chat-footer { padding: 12px 16px; border-top: 1px solid var(--line); background: #fff; display: flex; gap: 8px; }
+.chat-footer input { flex: 1; border: 1px solid var(--line); border-radius: 100px; padding: 8px 14px; outline: none; font-size: 13px; }
+.chat-footer button { background: var(--deep-blue); color: #fff; border: none; padding: 8px 16px; border-radius: 100px; cursor: pointer; }
