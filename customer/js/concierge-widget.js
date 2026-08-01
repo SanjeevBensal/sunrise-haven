@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
     chatBody.scrollTop = chatBody.scrollHeight;
 
     try {
-      const res = await fetch('http://127.0.0.1:8000/concierge/chat', {
+      const res = await fetch('https://sunrise-haven.onrender.com/concierge/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ session_id: sessionId, message: text })

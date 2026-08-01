@@ -12,7 +12,7 @@ const deleteBtn = document.querySelector('.action-btn.delete');
 // FRONTEND BOUNCE: ADMIN DASHBOARD PROTECTION
 // ==========================================
 const token = localStorage.getItem('access_token');
-const AUTH_API_URL = "http://127.0.0.1:8000";
+const AUTH_API_URL = "https://sunrise-haven.onrender.com";
 
 if (!token) {
     alert("You must be logged in to view this page.");
@@ -36,7 +36,7 @@ if (!token) {
 // 1. Fetch from your Database
 async function loadRooms() {
     try {
-        const res = await fetch('http://127.0.0.1:8000/rooms/all', {
+        const res = await fetch('https://sunrise-haven.onrender.com/rooms/all', {
             // FIXED: Added token to load the rooms
             headers: { 'Authorization': `Bearer ${token}` } 
         });
@@ -162,7 +162,7 @@ document.addEventListener('click', async (e) => {
 
         if(confirm("Are you sure you want to remove this specific image?")) {
             try {
-                const res = await fetch(`http://127.0.0.1:8000/rooms/${roomId}/remove-image`, {
+                const res = await fetch(`https://sunrise-haven.onrender.com/rooms/${roomId}/remove-image`, {
                     method: 'POST',
                     headers: { 
                         'Content-Type': 'application/json',
@@ -214,11 +214,11 @@ if (form) {
             beds: document.getElementById('m-beds') ? parseInt(document.getElementById('m-beds').value) : 1
         };
 
-        let targetUrl = 'http://127.0.0.1:8000/rooms/';
+        let targetUrl = 'https://sunrise-haven.onrender.com/rooms/';
         let method = 'POST';
 
         if (currentEditId) {
-            targetUrl = `http://127.0.0.1:8000/rooms/${currentEditId}`;
+            targetUrl = `https://sunrise-haven.onrender.com/rooms/${currentEditId}`;
             method = 'PATCH';
         }
 
@@ -246,7 +246,7 @@ if (form) {
                 }
                 
                 // Fire to the Cloudinary endpoint
-                const imgRes = await fetch(`http://127.0.0.1:8000/rooms/${finalRoomId}/images`, {
+                const imgRes = await fetch(`https://sunrise-haven.onrender.com/rooms/${finalRoomId}/images`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}` // FIXED: Added token for uploading images
@@ -279,7 +279,7 @@ if (deleteBtn) {
         if (!currentEditId) return;
         
         if (confirm("Are you sure you want to delete this room entirely?")) {
-            await fetch(`http://127.0.0.1:8000/rooms/${currentEditId}`, { 
+            await fetch(`https://sunrise-haven.onrender.com/rooms/${currentEditId}`, { 
                 method: 'DELETE',
                 headers: {
                     'Authorization': `Bearer ${token}` // FIXED: Added token for deleting room

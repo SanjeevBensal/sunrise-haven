@@ -3,7 +3,7 @@
 // FRONTEND BOUNCE: ADMIN DASHBOARD PROTECTION
 // ==========================================
 const token = localStorage.getItem('access_token');
-const AUTH_API_URL = "http://127.0.0.1:8000";
+const AUTH_API_URL = "https://sunrise-haven.onrender.com";
 
 if (!token) {
     alert("You must be logged in to view this page.");
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function loadBookings() {
         try {
-            const response = await fetch(`http://127.0.0.1:8000/bookings/`, { headers: getAuthHeaders() });
+            const response = await fetch(`https://sunrise-haven.onrender.com/bookings/`, { headers: getAuthHeaders() });
             if (!response.ok) throw new Error("Failed to load bookings");
             globalBookings = await response.json();
             renderBookings(globalBookings);
@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelectorAll('.action-btn.delete').forEach(btn => {
             btn.addEventListener('click', async (e) => {
                 if(confirm("Are you sure you want to delete this booking?")) {
-                    await fetch(`http://127.0.0.1:8000/bookings/${e.target.dataset.id}`, { method: 'DELETE', headers: getAuthHeaders() });
+                    await fetch(`https://sunrise-haven.onrender.com/bookings/${e.target.dataset.id}`, { method: 'DELETE', headers: getAuthHeaders() });
                     loadBookings();
                 }
             });
@@ -131,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         try {
-            const response = await fetch(`http://127.0.0.1:8000/bookings/${currentEditId}`, {
+            const response = await fetch(`https://sunrise-haven.onrender.com/bookings/${currentEditId}`, {
                 method: 'PATCH',
                 headers: getAuthHeaders(),
                 body: JSON.stringify(requestBody)

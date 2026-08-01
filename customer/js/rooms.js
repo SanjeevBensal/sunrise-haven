@@ -79,7 +79,7 @@ async function loadRooms() {
     const checkOut = tomorrow.toISOString().split('T')[0];
 
     // Fetch from the public available endpoint instead of the locked /all endpoint
-    const response = await fetch(`http://127.0.0.1:8000/rooms/available?check_in=${checkIn}&check_out=${checkOut}`);
+    const response = await fetch(`https://sunrise-haven.onrender.com/rooms/available?check_in=${checkIn}&check_out=${checkOut}`);
     
     if (!response.ok) throw new Error("Failed to fetch rooms");
     
