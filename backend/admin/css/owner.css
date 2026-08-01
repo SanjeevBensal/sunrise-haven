@@ -1,0 +1,189 @@
+/* ========================================= */
+/* OWNER DASHBOARD & TABLE STYLES            */
+/* ========================================= */
+.dashboard {
+  padding: 120px 6vw 150px;
+  background: var(--paper);
+}
+
+.dash-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.dash-head h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 400;
+  color: var(--ink);
+  margin-top: 12px;
+}
+
+
+
+.table-container {
+  background: var(--white);
+  border-radius: 16px;
+  border: 1px solid rgba(14,28,41,0.08);
+  overflow-x: auto;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+.crud-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  min-width: 800px;
+}
+
+.crud-table th, .crud-table td {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(14,28,41,0.05);
+}
+
+.crud-table th {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  background: rgba(247, 245, 239, 0.4);
+}
+
+.crud-table td {
+  font-size: 14.5px;
+  color: var(--ink);
+  vertical-align: middle;
+}
+
+.status {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 100px;
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.status.confirmed { background: rgba(22, 52, 42, 0.1); color: var(--forest); }
+.status.pending { background: rgba(255, 213, 74, 0.2); color: #A67C00; }
+
+.action-cells { display: flex; gap: 12px; }
+.action-btn { background: none; border: 1px solid rgba(14,28,41,0.15); padding: 6px 14px; border-radius: 6px; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
+.action-btn.edit { color: var(--deep-blue); }
+.action-btn.edit:hover { background: var(--deep-blue); color: #fff; border-color: var(--deep-blue); }
+.action-btn.delete { color: #D93838; }
+.action-btn.delete:hover { background: #D93838; color: #fff; border-color: #D93838; }
+
+/* ========================================= */
+/* MODAL STYLES                              */
+/* ========================================= */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(9,16,22,0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .35s;
+  padding: 24px;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-panel {
+  background: var(--paper);
+  width: 100%;
+  max-width: 500px;
+  border-radius: 22px;
+  transform: translateY(2%) scale(0.98);
+  transition: transform .4s cubic-bezier(.2,.8,.2,1);
+}
+
+.overlay.active .modal-panel {
+  transform: translateY(0) scale(1);
+}
+
+.modal-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 28px;
+  border-bottom: 1px solid rgba(14,28,41,0.12);
+}
+
+.modal-head h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.modal-close {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 1px solid rgba(14,28,41,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.modal-body {
+  padding: 26px 28px 32px;
+}
+
+.field { margin-bottom: 16px; }
+.field label {
+  display: block;
+  font-size: 12px;
+  font-family: 'IBM Plex Mono', monospace;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.field select {
+  width: 100%;
+  border: 1px solid rgba(14,28,41,0.12);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  background: var(--white);
+  outline: none;
+}
+
+.field select, .field input {
+  width: 100%;
+  border: 1px solid rgba(14,28,41,0.12);
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  background: var(--white);
+  outline: none;
+  box-sizing: border-box;
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field.full {
+  grid-column: span 2;
+}

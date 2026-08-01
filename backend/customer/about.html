@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Sunrise Haven</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Link global styles for the hero and nav -->
+<link rel="stylesheet" href="css/index.css">
+<link rel="stylesheet" href="css/about.css">
+<link rel="stylesheet" href="css/concierge.css">
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-mark"><a href="index.html">Sunrise <em>Haven</em></a></div>
+  <div class="nav-links">
+    <a href="rooms.html">Rooms</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="guide.html">Tourist guide</a>
+    <a href="about.html" class="active">About</a>
+  </div>
+  <a href="availability.html" class="nav-cta">Check availability</a>
+</nav>
+
+<!-- ANIMATED HERO -->
+<section class="hero" id="hero">
+  <div class="sun-container" id="sun-container">
+    <div class="rays" id="rays"></div>
+    <div class="sun" id="sun"></div>
+  </div>
+  <div class="hero-sky-glow"></div>
+
+  <svg class="mtn-layer" id="mtn-far" viewBox="0 0 1000 500" preserveAspectRatio="none" style="bottom:0;height:65%;opacity:0.45;">
+    <defs>
+      <linearGradient id="farGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#5A7188" />
+        <stop offset="100%" stop-color="#DDE6ED" stop-opacity="0" />
+      </linearGradient>
+    </defs>
+    <path fill="url(#farGradient)" d="M 0 280 L 40 260 L 70 270 L 150 160 L 180 170 L 240 90 L 280 130 L 310 120 L 400 230 L 440 210 L 500 260 L 600 120 L 630 140 L 720 40 L 760 90 L 790 85 L 880 180 L 940 140 L 980 170 L 1060 90 L 1090 120 L 1180 40 L 1220 90 L 1260 80 L 1360 190 L 1400 170 L 1440 220 H 1500 V 500 H -10 Z"/>
+  </svg>
+
+  <svg class="mtn-layer" id="mtn-mid" viewBox="0 0 1000 500" preserveAspectRatio="none" style="bottom:0;height:65%;opacity:0.75;">
+    <defs>
+      <linearGradient id="midGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#4A657E" />
+        <stop offset="100%" stop-color="#25384B" />
+      </linearGradient>
+    </defs>
+    <path fill="url(#midGradient)" d="M 0 350 L 120 310 L 150 325 L 280 210 L 320 230 L 420 150 L 460 170 L 550 250 L 590 235 L 680 340 L 740 310 L 820 360 L 900 280 L 940 295 L 1050 180 L 1090 200 L 1200 100 L 1240 140 L 1270 120 L 1380 240 L 1420 220 L 1440 250 H 1500 V 500 H -10 Z"/>
+  </svg>
+
+  <svg class="mtn-layer" id="mtn-near" viewBox="0 0 1450 500" preserveAspectRatio="none" style="bottom:0;height:55%;">
+    <defs>
+      <linearGradient id="frontGradient" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="#1B2E40" />
+        <stop offset="100%" stop-color="#0A1118" />
+      </linearGradient>
+      <linearGradient id="sunHighlight" x1="1" y1="0" x2="0" y2="0">
+        <stop offset="0%" stop-color="rgba(255,220,140,0.4)" />
+        <stop offset="30%" stop-color="rgba(255,220,140,0.05)" />
+        <stop offset="100%" stop-color="rgba(255,220,140,0)" />
+      </linearGradient>
+    </defs>
+    <path fill="url(#frontGradient)" d="M 0 320 L 80 270 L 110 285 L 180 190 L 380 310 L 410 295 L 550 400 L 590 385 L 700 450 L 800 370 L 840 390 L 980 260 L 1020 285 L 1050 270 L 1180 150 L 1220 190 L 1340 80 L 1380 120 L 1410 105 L 1440 140 H 1500 V 500 H -10 Z"/>
+    <path fill="url(#sunHighlight)" d="M 700 450 L 800 370 L 840 390 L 980 260 L 1020 285 L 1050 270 L 1180 150 L 1220 190 L 1340 80 L 1380 120 L 1410 105 L 1440 140 H 1500 V 500 H 700 Z"/>
+  </svg>
+
+  <svg id="pines" class="mtn-layer" viewBox="0 0 1440 250" preserveAspectRatio="none" style="bottom:0;height:30%;overflow:visible;">
+    <defs>
+      <path id="pine" d="M 0 0 L 12 25 L 4 25 L 18 55 L 6 55 L 24 90 L 8 90 L 30 135 L 12 135 L 12 170 L -12 170 L -12 135 L -30 135 L -8 90 L -24 90 L -6 55 L -18 55 L -4 25 L -12 25 Z"/>
+    </defs>
+    <g fill="#162E45" opacity="0.8">
+      <use href="#pine" transform="translate(30, 80) scale(0.6)" />
+      <use href="#pine" transform="translate(1420, 85) scale(0.65)" />
+    </g>
+    <g fill="#0B1A28">
+      <use href="#pine" transform="translate(60, 110) scale(0.85)" />
+      <use href="#pine" transform="translate(1400, 95) scale(0.9)" />
+    </g>
+    <g fill="#040B12">
+      <use href="#pine" transform="translate(10, 140) scale(1.1)" />
+      <use href="#pine" transform="translate(1450, 140) scale(1.1)" />
+    </g>
+  </svg>
+
+  <svg class="cloud" id="cloud1" width="220" height="70" viewBox="0 0 220 70" style="top:14%;left:8%;">
+    <ellipse cx="60" cy="40" rx="60" ry="24" fill="#fff" opacity="0.5"/>
+    <ellipse cx="120" cy="30" rx="50" ry="20" fill="#fff" opacity="0.4"/>
+  </svg>
+  <svg class="cloud" id="cloud2" width="180" height="60" viewBox="0 0 180 60" style="top:24%;right:10%;">
+    <ellipse cx="50" cy="34" rx="50" ry="20" fill="#fff" opacity="0.4"/>
+    <ellipse cx="110" cy="26" rx="40" ry="16" fill="#fff" opacity="0.35"/>
+  </svg>
+
+  <div class="particles" id="particles"></div>
+
+  <div class="hero-copy">
+    <div class="hero-eyebrow">About Sunrise Haven</div>
+    <h1 class="hero-title">Built by a family that never <em>left</em> the mountain.</h1>
+    <p class="hero-sub">Sunrise Haven began as one house on a ridge outside Baguio City, and grew slowly, room by room, into a small staycation run by the same family that has lived on this land for three generations.</p>
+  </div>
+</section>
+
+<section class="story wrap">
+  <div class="story-grid">
+    <div class="story-media"><span class="yr">Est. 2018</span></div>
+    <div class="story-body">
+      <h2>From <em>one</em> guest room to eight.</h2>
+      <p>The land Sunrise Haven sits on has belonged to the Ferrer family since the 1960s, when it was mostly pine forest and a single farmhouse. In 2018, after years of visiting relatives asking to stay the night just to catch the sunrise, the family converted one spare room into a proper guest space.</p>
+      <p>Word spread through word of mouth alone for the first two years. By 2021, the farmhouse had grown into four rooms. Today it's eight — each one built by the same local carpenters, using timber sourced from the surrounding province, and each one still facing the same direction that spare room did.</p>
+      <p>We never set out to build a hotel. We set out to share one view with more people than could fit around a kitchen table.</p>
+    </div>
+  </div>
+</section>
+
+<section class="mv wrap">
+  <div class="mv-grid">
+    <div class="mv-card">
+      <div class="num">Mission</div>
+      <h3>Share the mountain, without diluting it.</h3>
+      <p>To offer a small number of guests, at a time, a genuine slice of life on this ridge — the light, the quiet, and the pace of a place that hasn't been rebuilt for tourism.</p>
+    </div>
+    <div class="mv-card">
+      <div class="num">Vision</div>
+      <h3>Stay small on purpose.</h3>
+      <p>To remain an eight-room property indefinitely, reinvesting in the land and the surrounding community rather than in additional rooms — because the thing guests come back for is the quiet, not the scale.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about-gallery wrap">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">A few frames</div>
+      <h2>What the property actually looks like.</h2>
+    </div>
+    <p>A short selection from the full gallery — mornings, the garden, and the rooms in different light.</p>
+  </div>
+  <div class="gal-row">
+    <div class="gal-item" style="background:linear-gradient(160deg,#3E6B8F,#0F2A3F);"><span>Sunrise, main terrace</span></div>
+    <div class="gal-col">
+      <div class="gal-item" style="background:linear-gradient(160deg,#4A7A63,#122A21);"><span>Garden path</span></div>
+      <div class="gal-item" style="background:linear-gradient(160deg,#8C6A3E,#2A1E10);"><span>Firstlight Room interior</span></div>
+    </div>
+    <div class="gal-col">
+      <div class="gal-item" style="background:linear-gradient(160deg,#5A5A7A,#151526);"><span>Evening mist</span></div>
+      <div class="gal-item" style="background:linear-gradient(160deg,#6B4E8F,#1C1130);"><span>Shared kitchen</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="host">
+  <div class="wrap host-grid">
+    <div class="host-portrait"><span class="badge">Meet the host</span></div>
+    <div class="host-body">
+      <div class="eyebrow on-dark">Your host</div>
+      <h2>Elena Ferrer, <em>third generation.</em></h2>
+      <p>Elena grew up on this land and now runs Sunrise Haven day to day, alongside her parents, who still tend the garden and greet most guests personally. She handles bookings, the breakfast menu, and — most mornings — the fire pit.</p>
+      <p>She's usually the one who'll tell you which trail to take before the mist burns off, and which of the eight rooms actually gets the best light in any given month.</p>
+      <div class="host-quote">"We didn't build this to impress anyone. We built it so more people could see what we see every morning."</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-mark">Sunrise <em>Haven</em></div>
+    <div class="foot-bottom">
+      <span>© 2026 Sunrise Haven. All rights reserved.</span>
+      <span>Privacy policy · Terms of stay</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/about.js"></script>
+<!-- ========================================== -->
+    <!-- AI CONCIERGE WIDGET -->
+    <!-- ========================================== -->
+    <div id="concierge-widget">
+      <button id="concierge-trigger" class="concierge-btn">
+        ✨ Concierge
+      </button>
+
+      <div id="concierge-modal" class="concierge-modal hidden">
+        <div class="concierge-header">
+          <div>
+            <h3>Sunrise Haven Assistant</h3>
+            <span class="online-indicator">Online</span>
+          </div>
+          <button id="concierge-close">&times;</button>
+        </div>
+
+        <div id="chat-messages" class="chat-body">
+          <div class="msg bot-msg">
+            Good day! I am your virtual concierge. How can I make your Baguio stay memorable?
+          </div>
+        </div>
+
+        <!-- Dynamic Action Chips -->
+        <div id="suggestion-chips" class="chips-container"></div>
+
+        <div class="chat-footer">
+          <input type="text" id="chat-input" placeholder="Ask about rooms, spots, or stay details..." />
+          <button id="chat-send">Send</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Link the Concierge JavaScript -->
+    <script src="js/concierge-widget.js"></script> 
+    <!-- Make sure the path matches where you saved the JS file! -->
+
+</body> <!-- This is the end of your HTML file -->
+</html>
