@@ -64,7 +64,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 origins = [
     "http://localhost:5173", # Default port for Vite
     "http://localhost:3000", # Default port for React/Next.js
-    # "https://your-future-vercel-frontend-url.vercel.app", # Uncomment later!
+    "https://sunrise-haven.vercel.app",
 ]
 
 app.add_middleware(
