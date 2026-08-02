@@ -74,6 +74,53 @@ const API_BASE_URL = "https://sunrise-haven.onrender.com";
 document.addEventListener('DOMContentLoaded', () => {
 
   // ==========================================
+  // DYNAMIC FEATURED ROOMS
+  // ==========================================
+  async function loadFeaturedRooms() {
+      const track = document.querySelector('.room-track');
+      if (!track) return; // Failsafe in case we aren't on the home page
+      
+      try {
+          const res = await fetch(`${API_BASE_URL}/rooms/public`);
+          if (!res.ok) throw new Error("Failed to fetch public rooms");
+          const rooms = await res.json();
+          
+          if (rooms.length > 0) {
+              // Replace the hardcoded HTML with our live database data
+              track.innerHTML = rooms.map(r => {
+                  // Fallback to your gradient if the room has no images yet
+                  const firstImage = (r.images && r.images.length > 0) ? `url('${r.images[0].image_url}')` : 'linear-gradient(160deg,#3E6B8F,#0F2A3F)';
+                  
+                  return `
+                  <div class="room-card">
+                    <div class="room-media">
+                      <div class="fill" style="background:${firstImage}; background-size: cover; background-position: center;"></div>
+                      <span class="tag">${r.view_tag || 'Standard'}</span>
+                    </div>
+                    <div class="room-info">
+                      <h3>${r.name}</h3>
+                      <div class="room-meta">
+                        <span>${r.capacity} guests</span>
+                        <span>${r.beds} bed${r.beds > 1 ? 's' : ''}</span>
+                      </div>
+                      <div class="room-foot">
+                        <div class="room-price">₱${Number(r.base_price).toLocaleString()} <span>/ night</span></div>
+                        <a class="room-link" href="availability.html">Book room →</a>
+                      </div>
+                    </div>
+                  </div>`;
+              }).join('');
+          }
+      } catch (e) {
+          console.error("Could not load featured rooms:", e);
+          // If the fetch fails, it just leaves your hardcoded HTML in place as a safe fallback!
+      }
+  }
+
+  // Execute the function
+  loadFeaturedRooms();
+
+  // ==========================================
   // FRONTEND BOUNCE: ADMIN DASHBOARD PROTECTION
   // ==========================================
   // We only run this security check if the user is actually on the owner dashboard page.

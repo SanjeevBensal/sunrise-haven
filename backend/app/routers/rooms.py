@@ -92,6 +92,11 @@ def get_calendar_availability(year: int, month: int, db: Session = Depends(get_d
     # Returning an empty dictionary until you build the complex DB logic later!
     return {}
 
+@router.get("/public", response_model=List[RoomOut])
+def get_public_rooms(db: Session = Depends(get_db)):
+    """Fetch all active rooms to display on the public homepage."""
+    return db.query(Room).filter(Room.is_active == True).limit(3).all()
+
 # ==========================================
 # 3. OWNER DASHBOARD ENDPOINTS (Locked)
 # ==========================================
