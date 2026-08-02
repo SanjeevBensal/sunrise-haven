@@ -7,7 +7,7 @@ const AUTH_API_URL = "https://sunrise-haven.onrender.com";
 
 if (!token) {
     alert("You must be logged in to view this page.");
-    window.location.href = "../customer/index.html"; // Kick them out to the homepage
+    window.location.href = "../customer/index.html";
 } else {
     // Verify with the backend that this token belongs to an APPROVED ADMIN
     fetch(`${AUTH_API_URL}/auth/requests`, { 
