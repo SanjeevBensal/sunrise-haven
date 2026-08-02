@@ -62,9 +62,10 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # 3. ADD CORS MIDDLEWARE (Fixed configuration)
 # Replace the URLs in this list with your actual frontend URLs
 origins = [
-    "http://localhost:5173", # Default port for Vite
-    "http://localhost:3000", # Default port for React/Next.js
-    "https://sunrise-haven.vercel.app",
+    "http://127.0.0.1:5500",
+    "http://localhost:5500",
+    "https://sunrise-haven.vercel.app", 
+    "https://sunrise-haven-admin.vercel.app"
 ]
 
 app.add_middleware(
