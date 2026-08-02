@@ -89,11 +89,8 @@ def get_available_rooms(
 @router.get("/calendar")
 def get_calendar_availability(year: int, month: int, db: Session = Depends(get_db)):
     """Returns frontend calendar dot status."""
-    return {
-        f"{year}-{month:02d}-15": "red",     
-        f"{year}-{month:02d}-16": "amber",   
-        f"{year}-{month:02d}-17": "green",   
-    }
+    # Returning an empty dictionary until you build the complex DB logic later!
+    return {}
 
 # ==========================================
 # 3. OWNER DASHBOARD ENDPOINTS (Locked)
