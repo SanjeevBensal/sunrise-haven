@@ -204,7 +204,7 @@ document.addEventListener('DOMContentLoaded', () => {
                   alert('Login successful!');
                   
                   // Redirect directly to the admin dashboard
-                  window.location.href = '../admin/ownerindex.html'; 
+                  window.location.href = '../admin/index.html'; 
               } else {
                   alert('Your request to create an admin account has been sent for approval.');
                   // Automatically switch back to the login tab
